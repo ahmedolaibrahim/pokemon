@@ -6,8 +6,16 @@
 import express from 'express';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
+import morgan from 'morgan';
 import routes from '../app/routes';
 import config from '../config/keys';
+
+import  { errorHandler }  from './utils/middleware/error';
+
+
+/***
+ * module variables
+ */
 
 const app = express();
 
@@ -28,15 +36,15 @@ const limiter = rateLimit({
   max: 1000 // limit each IP to 100 requests per windowMs
 });
 
-
-
 /**
  * Module middleware
  */
 
 app.use(cors(corsOptions));
 app.use(limiter);
+app.use(morgan('combined'));
 app.use(routes);
+app.use(errorHandler);
 
 
 //export app module

@@ -3,7 +3,7 @@
  * Module dependencies
  */
 
-import { Router } from "express";
+import { Router } from 'express';
 import  pokemonRouter  from './pokemon';
 
 //initialize router
@@ -21,6 +21,7 @@ router.get('/', (req,res) => {
 router.all('*',(req, res) => {
   res.status(404).send({msg: 'not found'});
 });
+
 
 //export router 
 module.exports = router;
