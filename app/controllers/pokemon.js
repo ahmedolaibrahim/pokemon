@@ -14,8 +14,9 @@ export default class Pokemon  {
    * @return {Object} return object containing pokemon data
    */
 
-  static async getPokemonByName() {
-
+  static async getPokemon(name) {
+    const pokemon =  await pokemonService.getPokemon(name); 
+    return pokemon.data;
   }
 
   /**
@@ -25,7 +26,7 @@ export default class Pokemon  {
 
   static async getAllPokemon() {
     const pokemons =  await pokemonService.getAllPokemons(); 
-    return pokemons.data.results;
+    return pokemons.data;
   }
 
   static async comparePokemons() {

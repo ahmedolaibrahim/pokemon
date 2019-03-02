@@ -3,8 +3,8 @@
  */
 import { Router } from 'express';
 import { asyncErrorHandler } from '../utils/middleware/errorHandler';
-import pokemon from '../controllers/pokemon';
-import pokemonURL from '../utils/axios';
+import Pokemon from '../controllers/pokemon';
+
 
 /**
  * Module variables
@@ -14,17 +14,21 @@ const pokemonRouter =  Router();
 /**
  * Pokemon Routes 
  */
+
 pokemonRouter.get('/',asyncErrorHandler(async (req, res, next) => {
-    const pokemons =  await pokemon.getAllPokemon();
+    const pokemons =  await Pokemon.getAllPokemon();
     res.status(200).json({
       pokemons
     });
-  
-  
 }));
 
 pokemonRouter.get('/name/:name',asyncErrorHandler(async (req, res, next) => {
-  res.send("get pokemon by name");
+  let name = req.params.name;
+
+  const pokemon =  await Pokemon.getPokemon(name);
+    res.status(200).json({
+      pokemon
+    });
 }));
 
 pokemonRouter.get('/compare',asyncErrorHandler(async (req, res, next) => {
