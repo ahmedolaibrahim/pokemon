@@ -5,8 +5,9 @@
  */
 
 import app from '../app/app';
+import config from '../config/keys';
 
-const PORT = 9080;
+const PORT = config.server.port;
 
 app.listen(PORT, (req, res) => {
   console.log(`app is now listening on PORT:${PORT}`);
