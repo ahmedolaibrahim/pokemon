@@ -9,6 +9,6 @@ import config from '../config/keys';
 
 const PORT = config.server.port;
 
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
   console.log(`app is now listening on PORT:${PORT}`);
 });
