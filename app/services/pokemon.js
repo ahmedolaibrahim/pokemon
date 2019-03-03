@@ -48,7 +48,7 @@ export default class pokemonService {
     await Promise.all(
       list.map(async(url) => {
         try {
-              let pokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${url}/`);
+              let pokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${url}/`,{timeout: 10000});
               pokemons.push(pokemonData.data);
         } catch (err) {
               console.log(`Pokemon with name ${url} not found!`);

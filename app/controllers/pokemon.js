@@ -29,7 +29,7 @@ export default class Pokemon  {
 
   static async getAllPokemon() {
     const pokemons =  await pokemonService.getAllPokemons(); 
-    return pokemons.data;
+    return pokemons.data.results;
   }
 
 
@@ -38,7 +38,7 @@ export default class Pokemon  {
    * @return {Array} return Array of all pokemons
    */
 
-  static async getPokemonsFromList(list, res) {
+  static async getPokemonsFromList(list) {
     const pokemonList = await pokemonService.getPokemonsFromList(list);
     if (pokemonList.errors.length > 0) {
         throw new apiError(JSON.stringify(pokemonList.errors));
@@ -67,10 +67,12 @@ export default class Pokemon  {
    */
 
   static async comparePokemons(pokemonList) {
+  
     if (typeof pokemonList === 'undefined' || pokemonList.length < 1) {
         throw new apiError('Pokemon List is empty or Invalid');
     } 
     const getPokemons =  await this.getPokemonsFromList(pokemonList);
+    
     let pokeMoves = this.getPokemonMoves(getPokemons);
     const powerfulPokemon =  _.reverse(_.sortBy(pokeMoves, pokemon => pokemon.moves))[0];
     return powerfulPokemon;

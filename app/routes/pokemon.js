@@ -23,9 +23,7 @@ const pokemonRouter =  Router();
 pokemonRouter.get('/',asyncErrorHandler(async (req, res, next) => {
 
     const pokemons =  await Pokemon.getAllPokemon();
-    res.status(200).json({
-      pokemons
-    });
+    res.status(200).json(pokemons);
 
 }));
 
@@ -39,9 +37,7 @@ pokemonRouter.get('/name/:name',asyncErrorHandler(async (req, res, next) => {
   let name = req.params.name;
 
     const pokemon =  await Pokemon.getPokemon(name);
-    res.status(200).json({
-      pokemon
-    });
+    res.status(200).json(pokemon);
 
 }));
 
@@ -55,9 +51,7 @@ pokemonRouter.get('/compare',asyncErrorHandler(async (req, res, next) => {
   let pokemonList = req.body ? req.body.pokemonList : ['kakuna', 'ditto'] ;
 
   const mostPowerfulPokemon = await Pokemon.comparePokemons(pokemonList, res);
-  res.status(200).json({
-    msg:`${mostPowerfulPokemon.pokemon} is the most powerful with ${mostPowerfulPokemon.moves} moves`
-  });
+  res.status(200).json(`${mostPowerfulPokemon.pokemon} is the most powerful with ${mostPowerfulPokemon.moves} moves`);
 
 }));
 
