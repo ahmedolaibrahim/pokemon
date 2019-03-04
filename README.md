@@ -30,6 +30,19 @@ From the commandline run the following commands
  -  REDIS_HOST=127.0.0.1
  -  REDIS_PORT=6379
 
+ ## API Reference
+ - GET /api/v1/pokemon - returns list of all pokemons
+    - Response
+ - GET /api/v1/pokemon/name/:name - returns a pokemon's details based on  name parameter
+    - Request Parameter
+       - name - `String`
+    - Response
+ - POST /api/v1/pokemon/compare - compare a list of pokemons and return the most powerful
+    - Request Parameter
+      - pokemonList - `Array` e.g `['ditto', 'kakuna', 'spearow']`
+    - Response
+
+
  ## Contributors
 
  [Ibrahim Ahmed](https://github.com/ahmedolaibrahim)
