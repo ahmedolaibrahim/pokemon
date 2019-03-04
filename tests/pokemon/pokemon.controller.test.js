@@ -3,10 +3,7 @@ jest.mock('../../app/services/pokemon');
 import Pokemon from '../../app/controllers/pokemon';
 import { pokemons, pokemon, pokemonList, pokemonListError } from './testData';
 
-
-
-
-
+//Test Suite
 describe('Pokemon Controller Test', () => {
 
   test('Should fetch pokemons', async() => {

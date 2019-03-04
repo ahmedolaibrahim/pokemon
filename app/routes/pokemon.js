@@ -4,12 +4,15 @@
 import { Router } from 'express';
 import { asyncErrorHandler } from '../utils/middleware/errorHandler';
 import Pokemon from '../controllers/pokemon';
+import cache from 'express-redis-cache';
 
 
 /**
  * Module variables
  */
-const pokemonRouter =  Router();
+const 
+   appCache = cache(),
+   pokemonRouter =  Router();
 
 /**
  * Pokemon Routes 
@@ -20,11 +23,10 @@ const pokemonRouter =  Router();
  * GET Request
  */
 
-pokemonRouter.get('/',asyncErrorHandler(async (req, res, next) => {
-
+pokemonRouter.get('/', appCache.route({ expire: 5000  }), asyncErrorHandler(async (req, res, next) => {
     const pokemons =  await Pokemon.getAllPokemon();
     res.status(200).json(pokemons);
-
+    res.end();
 }));
 
 /**
@@ -32,7 +34,7 @@ pokemonRouter.get('/',asyncErrorHandler(async (req, res, next) => {
  * GET Request
  */
 
-pokemonRouter.get('/name/:name',asyncErrorHandler(async (req, res, next) => {
+pokemonRouter.get('/name/:name',appCache.route({ expire: 5000  }),asyncErrorHandler(async (req, res, next) => {
     
   let name = req.params.name;
 
@@ -43,13 +45,12 @@ pokemonRouter.get('/name/:name',asyncErrorHandler(async (req, res, next) => {
 
 /**
  * Compare List Of Pokemon
- * GET Request
+ * POST Request
  */
 
-pokemonRouter.get('/compare',asyncErrorHandler(async (req, res, next) => {
+pokemonRouter.post('/compare',asyncErrorHandler(async (req, res, next) => {
 
-  let pokemonList = req.body ? req.body.pokemonList : ['kakuna', 'ditto'] ;
-
+  let pokemonList = req.body.pokemonList;
   const mostPowerfulPokemon = await Pokemon.comparePokemons(pokemonList, res);
   res.status(200).json(`${mostPowerfulPokemon.pokemon} is the most powerful with ${mostPowerfulPokemon.moves} moves`);
 

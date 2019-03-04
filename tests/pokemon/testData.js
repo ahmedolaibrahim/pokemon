@@ -118,59 +118,6 @@ const pokemonList = [
 
 const pokemonListError = [{"pokemon":"kuku","err":"Not Found!"}];
 
-// const pokemonCompareList = [
-//   {
-//     name: "metapod",
-//     moves: [
-//       {
-//         move: {
-//         name: "transform",
-//         url: "https://pokeapi.co/api/v2/move/144/"
-//         },
-//       }
-//     ]
-//   },
-
-//   {
-//     name: "kukuna",
-//     moves: [
-//       {
-//         move: {
-//         name: "transform",
-//         url: "https://pokeapi.co/api/v2/move/144/"
-//         },
-//         move: {
-//           name: "iron-defense",
-//           url: "https://pokeapi.co/api/v2/move/334/"
-//         },
-//       }
-//     ]
-//   },
-
-//   {
-//     name: "ditto",
-//     moves: [
-//       {
-//         move: {
-//         name: "transform",
-//         url: "https://pokeapi.co/api/v2/move/144/"
-//         },
-//         move: {
-//           name: "string-shot",
-//           url: "https://pokeapi.co/api/v2/move/81/"
-//         },
-//         move: {
-//           name: "harden",
-//           url: "https://pokeapi.co/api/v2/move/106/"
-//         },
-//       }
-//     ]
-//   },
-
-//]
-
-
-
 module.exports = {
   pokemon,
   pokemons,

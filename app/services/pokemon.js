@@ -5,6 +5,11 @@
 import pokemonURL  from '../utils/axios';
 import apiError from '../utils/middleware/apiError';
 import axios from 'axios';
+import https from 'https';
+
+
+
+const httpsAgent = new https.Agent({ keepAlive: true, maxSockets: 5000, keepAliveMsecs: 3000000 });
 
 
 //Pokemon service class
@@ -48,11 +53,11 @@ export default class pokemonService {
     await Promise.all(
       list.map(async(url) => {
         try {
-              let pokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${url}/`,{timeout: 10000});
+              let pokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${url}/`,{ httpsAgent });
               pokemons.push(pokemonData.data);
         } catch (err) {
               console.log(`Pokemon with name ${url} not found!`);
-              errors.push({pokemon: `${url}`, err: `${err.response.data}`});
+              errors.push({pokemon: `${url}`, err: `Invalid Pokemon name`});
         }
       }));
    

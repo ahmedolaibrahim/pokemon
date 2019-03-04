@@ -9,6 +9,8 @@ import rateLimit from 'express-rate-limit';
 import morgan from 'morgan';
 import routes from '../app/routes';
 import config from '../config/keys';
+import bodyParser from 'body-parser';
+
 
 import  { errorHandler }  from './utils/middleware/error';
 
@@ -40,11 +42,16 @@ const limiter = rateLimit({
  * Module middleware
  */
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(cors(corsOptions));
 app.use(limiter);
 app.use(morgan('combined'));
 app.use(routes);
 app.use(errorHandler);
+
 
 
 //export app module
