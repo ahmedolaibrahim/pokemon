@@ -22,10 +22,14 @@ A REST API that performs the following functions
 ## Running Tests
 From the commandline run the following commands
   - Navigate to the project directory  `cd pokemon`
-  - Execute the following command npm run test to run the unit and integration tests
+  - Execute the following command `npm run test` to run the unit and integration tests
 
 ## Sample Environment Variable
  -  WHITELIST=['http://localhost:8080']
  -  PORT=8080
  -  REDIS_HOST=127.0.0.1
  -  REDIS_PORT=6379
+
+ ## Contributors
+
+ [Ibrahim Ahmed](https://github.com/ahmedolaibrahim)
