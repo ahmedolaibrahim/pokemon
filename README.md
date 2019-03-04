@@ -11,6 +11,6 @@ A REST API that performs the following functions
 
 ## Setup
 - git clone https://github.com/ahmedolaibrahim/pokemon
-- Navigate to the project directory cd pokemon
+- Navigate to the project directory `cd pokemon`
 - Create a .env file from example.env sample file and update the necessary variables
  
