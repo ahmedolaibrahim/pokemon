@@ -23,6 +23,7 @@ A REST API that performs the following functions
 From the commandline run the following commands
   - Navigate to the project directory  `cd pokemon`
   - Execute the following command `npm run test` to run the unit and integration tests
+  ![Test](test_images/tests.png)
 
 ## Sample Environment Variable
  -  WHITELIST=['http://localhost:8080']
@@ -33,14 +34,19 @@ From the commandline run the following commands
  ## API Reference
  - GET - `/api/v1/pokemon` - returns list of all pokemons
     - Response
+    ![Pokemons](test_images/pokemon_list.png)
+
  - GET - `/api/v1/pokemon/name/:name` - returns a pokemon's details based on  name parameter
     - Request Parameter
        - name - `String`
     - Response
+     ![Pokemon name](test_images/pokemon_name.png)
+     
  - POST - `/api/v1/pokemon/compare`- compare a list of pokemons and return the most powerful
     - Request Parameter
       - pokemonList - `Array` e.g `['ditto', 'kakuna', 'spearow']`
     - Response
+     ![Pokemon compare](test_images/compare_response.png)
 
 
  ## Contributors

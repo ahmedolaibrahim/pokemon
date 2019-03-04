@@ -26,7 +26,7 @@ const
  * GET Request
  */
 
-pokemonRouter.get('/', appCache.route({ expire: 5000  }), asyncErrorHandler(async (req, res, next) => {
+pokemonRouter.get('/', appCache.route({ expire: 30  }), asyncErrorHandler(async (req, res, next) => {
     const pokemons =  await Pokemon.getAllPokemon();
     res.status(200).json(pokemons);
     res.end();
@@ -37,7 +37,7 @@ pokemonRouter.get('/', appCache.route({ expire: 5000  }), asyncErrorHandler(asyn
  * GET Request
  */
 
-pokemonRouter.get('/name/:name',appCache.route({ expire: 5000  }),asyncErrorHandler(async (req, res, next) => {
+pokemonRouter.get('/name/:name',appCache.route({ expire: 30  }),asyncErrorHandler(async (req, res, next) => {
     
   let name = req.params.name;
 
