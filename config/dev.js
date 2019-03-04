@@ -4,5 +4,9 @@ module.exports = {
   server: {
     port: process.env.PORT || 7500
   },
-  whitelist: process.env.whitelist
+  redis:{
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT
+  },
+  whitelist: process.env.WHITELIST
 }

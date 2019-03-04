@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "npm install pm2 babel -g",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "NODE_ENV=production pm2-runtime start ecosystem.config.js --env production",
     "test": "NODE_ENV=test jest",
     "dev": "nodemon --exec babel-node ./bin/www"
   },

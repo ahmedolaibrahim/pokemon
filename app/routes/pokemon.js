@@ -5,13 +5,16 @@ import { Router } from 'express';
 import { asyncErrorHandler } from '../utils/middleware/errorHandler';
 import Pokemon from '../controllers/pokemon';
 import cache from 'express-redis-cache';
-
+import config from '../../config/keys';
 
 /**
  * Module variables
  */
 const 
-   appCache = cache(),
+   appCache = cache({
+      host: config.redis.host, 
+      port: config.redis.port
+   }),
    pokemonRouter =  Router();
 
 /**
