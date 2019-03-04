@@ -6,13 +6,9 @@ import app from '../../app/app';
 describe("Integration tests", () => {
 
   beforeEach(() => {
-    jest.setTimeout(15000);
+    jest.setTimeout(30000);
   });
 
-  afterAll(() => {
-    app.close();
-  })
-  
   test('get all pokemons GET /pokemon/', async () => {
     const response = await request(app).get(`/api/v1/pokemon/`);
     expect(response.status).toEqual(200);
@@ -32,6 +28,6 @@ describe("Integration tests", () => {
                             .post(`/api/v1/pokemon/compare/`)
                             .send({ pokemonList:['spearow', 'kakuna']});
     expect(response.status).toEqual(200);
-    expect(response.body).toEqual("kakuna is the most powerful with 5 moves");
+    expect(response.body).toEqual("spearow is the most powerful with 67 moves");
   });
 });
