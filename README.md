@@ -13,11 +13,14 @@ A REST API that performs the following functions
 - `git clone https://github.com/ahmedolaibrahim/pokemon`
 - Navigate to the project directory `cd pokemon`
 - Create a .env file from example.env sample file and update the necessary variables
-
+- To run on local machine without docker run `npm install` (Optional)
 ## How To Run
-- `docker-compose up` (first time run will perform build)
+- Using Docker
+  - `docker-compose up` (first time run will perform build)
     - you can force a fresh build with `--build`
     - you can background (run without holding up your CLI) by using `--detach`
+- Without Docker
+    - run the following command in the terminal  `npm run dev`
  
 ## Running Tests
 From the commandline run the following commands
