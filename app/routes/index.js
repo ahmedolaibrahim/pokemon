@@ -22,7 +22,6 @@ router.all('*',(req, res) => {
   res.status(404).json({msg: 'route not found'});
 });
 
-
 //export router 
 module.exports = router;
 

@@ -7,10 +7,7 @@ import apiError from '../utils/middleware/apiError';
 import axios from 'axios';
 import https from 'https';
 
-
-
 const httpsAgent = new https.Agent({ keepAlive: true, maxSockets: 5000, keepAliveMsecs: 3000000 });
-
 
 //Pokemon service class
 

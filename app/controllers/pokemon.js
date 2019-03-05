@@ -7,8 +7,6 @@
  import apiError from '../utils/middleware/apiError';
  import _ from 'lodash';
 
-
-
 export default class Pokemon  {
 
   /**
@@ -32,7 +30,6 @@ export default class Pokemon  {
     return pokemons.data.results;
   }
 
-
    /**
    * return all pokemons
    * @return {Array} return Array of all pokemons
@@ -45,7 +42,6 @@ export default class Pokemon  {
     } else {
        return pokemonList.pokemons;
     }
-  
   }
 
    /**

@@ -10,10 +10,7 @@ import morgan from 'morgan';
 import routes from '../app/routes';
 import config from '../config/keys';
 import bodyParser from 'body-parser';
-
-
 import  { errorHandler }  from './utils/middleware/error';
-
 
 /***
  * module variables
@@ -51,8 +48,6 @@ app.use(limiter);
 app.use(morgan('combined'));
 app.use(routes);
 app.use(errorHandler);
-
-
 
 //export app module
 module.exports = app;
